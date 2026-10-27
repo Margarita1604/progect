@@ -1,0 +1,105 @@
+body {
+  font-family: system-ui, -apple-system, Arial;
+  margin: 0;
+  background: linear-gradient(135deg, #eef2ff, #f8fafc);
+  min-height: 100vh;
+  display: flex;
+  flex-direction:column;
+
+}
+.login_form{
+  align-items: center;
+  justify-content: center;
+ }
+/* КАРТОЧКА */
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  width: 100%;
+}
+
+/* ЗАГОЛОВОК */
+h2 {
+  margin: 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* LABEL */
+label {
+  font-size: 14px;
+  color: #444;
+}
+
+/* INPUT */
+input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  font-size: 14px;
+  transition: all 0.2s ease;
+  outline: none;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #6366f1;
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15);
+}
+
+/* КНОПКА */
+.btn {
+  background: #6366f1;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.btn:hover {
+  background: #4f46e5;
+}
+
+/* ССЫЛКА */
+a {
+  color: #6366f1;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ТЕКСТ */
+.muted {
+  color: #666;
+  font-size: 14px;
+}
+
+/* FLASH */
+.flash {
+  margin-top: 16px;
+  padding: 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.flash.ok {
+  background: #ecfdf5;
+  color: #065f46;
+}
+
+.flash.error {
+  background: #fef2f2;
+  color: #991b1b;
+}
+
+/* ОТСТУПЫ */
+form div {
+  height: 12px;
+}

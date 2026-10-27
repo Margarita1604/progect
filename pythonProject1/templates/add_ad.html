@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <meta charset="UTF-8">
+    <title>login</title>
+</head>
+
+<body>
+<div class="card" style="max-width:420px; margin:40px auto;">
+  {% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div class="flash {{ category }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+  <h2 style="margin-bottom:12px;">Добавление объявления</h2>
+
+  <form method="post">
+    <label for="goal">Цель объявления</label>
+    <input id="goal" name="goal" type="text" required>
+
+    <div style="height:12px;"></div>
+
+    <label for="text">Описание</label>
+    <textarea id="text" name="text"  required >
+
+     </textarea>
+
+    <div style="height:18px;"></div>
+
+    <button class="btn" type="submit" style="width:100%;">Добавить</button>
+  </form>
+
+
+</div>
+
+</body>
+</html>

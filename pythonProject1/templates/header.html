@@ -1,0 +1,161 @@
+<style>
+    .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid #e5e7eb;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    }
+
+    .site-header * {
+        box-sizing: border-box;
+    }
+
+    .site-header .header-container {
+        width: min(1100px, 92%);
+        margin: 0 auto;
+        min-height: 72px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+        padding: 12px 0;
+    }
+
+    .site-header .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        text-decoration: none;
+        color: #111827;
+        font-weight: 700;
+        font-size: 22px;
+        flex-shrink: 0;
+    }
+
+    .site-header .logo-badge {
+        width: 38px;
+        height: 38px;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        color: white;
+        font-size: 18px;
+        box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+    }
+
+    .site-header .logo-text {
+        letter-spacing: 0.3px;
+    }
+
+    .site-header .nav {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: nowrap;
+    }
+
+    .site-header .nav-link {
+        text-decoration: none;
+        color: #374151;
+        padding: 10px 14px;
+        border-radius: 12px;
+        font-weight: 500;
+        transition: 0.2s ease;
+        white-space: nowrap;
+    }
+
+    .site-header .nav-link:hover {
+        background: #eef2ff;
+        color: #1d4ed8;
+    }
+
+    .site-header .nav-link.active {
+        background: #e0e7ff;
+        color: #1d4ed8;
+    }
+
+    .site-header .nav-link-btn {
+        background: linear-gradient(135deg, #2563eb, #7c3aed);
+        color: white;
+        box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    }
+
+    .site-header .nav-link-btn:hover {
+        color: white;
+        background: linear-gradient(135deg, #1d4ed8, #6d28d9);
+        transform: translateY(-1px);
+    }
+
+    .site-header .nav-link-btn.active-btn {
+        outline: 2px solid rgba(37, 99, 235, 0.2);
+    }
+
+    @media (max-width: 900px) {
+        .site-header .header-container {
+            gap: 16px;
+        }
+
+        .site-header .nav {
+            gap: 6px;
+        }
+
+        .site-header .nav-link {
+            padding: 8px 10px;
+            font-size: 14px;
+        }
+
+        .site-header .logo {
+            font-size: 18px;
+        }
+
+        .site-header .logo-badge {
+            width: 34px;
+            height: 34px;
+            font-size: 16px;
+        }
+    }
+</style>
+
+<header class="site-header">
+    <div class="container header-inner">
+
+        <nav class="nav">
+            <a href="{{ url_for('main') }}"
+               class="nav-link {% if request.endpoint == 'index' %}active{% endif %}">
+                Главная
+            </a>
+
+            <a href="{{ url_for('ads') }}"
+               class="nav-link {% if request.endpoint == 'ads' %}active{% endif %}">
+                Объявления
+            </a>
+{%if current_user.is_authenticated%}
+            <a href="{{ url_for('lk') }}"
+               class="nav-link {% if request.endpoint == 'my_ads' %}active{% endif %}">
+                Мои объявления
+            </a>
+
+            <a href="{{ url_for('add_ad') }}"
+               class="nav-link nav-link-btn {% if request.endpoint == 'create_ad' %}active-btn{% endif %}">
+                Добавить объявление
+            </a>
+             <a href="{{ url_for('log_out') }}"
+               class="nav-link nav-link-btn {% if request.endpoint == 'create_ad' %}active-btn{% endif %}">
+                Выйти
+            </a>
+            {%else%}
+             <a href="{{ url_for('login') }}"
+               class="nav-link nav-link-btn {% if request.endpoint == 'login' %}active-btn{% endif %}">
+                Войти
+            </a>
+            {%endif%}
+        </nav>
+    </div>
+</header>
